@@ -64,3 +64,15 @@ B = [[5, 6, 7],
      [8, 9, 10]]
 C = NumeralMatrix_multiply(A, B) 
 print("multiply numeral matrix:", A, "*", B, "=", NumeralMatrix_multiply(A, B))
+
+# A more compact version using list comprehensions
+def NumeralMatrix_multiply_(X, Y):
+    return [
+        [
+            sum(X[i][k] * Y[k][j] for k in range(len(Y)))
+            for j in range(len(Y[0]))
+        ]
+        for i in range(len(X))
+    ]
+
+print("multiply numeral matrix by list comrehensions:", A, "*", B, "=", NumeralMatrix_multiply_(A, B))
